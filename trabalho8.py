@@ -1,72 +1,76 @@
 #classe aluno em, informática, mecatronica, eletro, aluno superior, pedagogia, ciencias jsjs
 #transferencia, alunos s podem cursar os dois, 
-
-class Aluno:
-       def __init__ (self, nome, sobrenome, endereco, filiacao, emailResponsavel, regAcad, segmentoEnsino, turma, nomeUsuario, email, senha):
+class Pessoa:
+       def __init__(self, nome, sobrenome, endereco, turma, cpf, nomeUsuario, email, senha):
               self.nome = nome
               self.sobrenome = sobrenome
               self.endereco = endereco
-              self.filiacao = filiacao 
-              self.__emailResponsavel = emailResponsavel
-              self.regAcad = regAcad
-              self.segmentoEnsino = segmentoEnsino
               self.turma = turma
+              self.__cpf = cpf
               self.__nomeUsuario = nomeUsuario
               self.__email = email
               self.__senha = senha
+
+       @property
+       def cpf(self):
+              return self.__cpf
+       @cpf.setter
+       def cpf(self, novo):
+              self.__cpf = novo
+
+       @property
+       def nomeUsuario(self):
+              return self.__nomeUsuario
+       @nomeUsuario.setter
+       def nomeUsuario(self, novo):
+              self.__nomeUsuario = novo
+       
+       @property
+       def email(self):
+              return self.__email
+       @email.setter
+       def email(self, novo):
+              self.__email = novo
+       
+       @property
+       def senha(self):
+              return self.__senha
+       @senha.setter
+       def senha(self, novo):
+              self.__senha = novo
+
+#aluno fechou ==
+class Aluno(Pessoa):
+       def __init__(self, nome, sobrenome, endereco, cpf, turma, nomeUsuario, email, senha, filiacao, emailResponsavel, registroAcad, segmentoEnsino):
+              super().__init__(nome, sobrenome, endereco, cpf, turma, nomeUsuario, email, senha)
+              self.filiacao = filiacao 
+              self.__emailResponsavel = emailResponsavel
+              self.registroAcad = registroAcad
+              self.segmentoEnsino = segmentoEnsino
 
        @property
        def emailResponsavel(self):
               return self.__emailResponsavel
-       
-       @property
-       def nomeUsuario(self):
-              return self.__nomeUsuario
-       
-       @property
-       def email(self):
-              return self.__email
-       
-       @property
-       def senha(self):
-              return self.__senha
+       @emailResponsavel.setter
+       def emailResponsavel(self, novo):
+              self.__emailResponsavel = novo
 
-class Professor:
-       def __init__ (self, nome, sobrenome, cpf, endereco, formacao, disciplinas, segmentos, turma, nomeUsuario, email, senha):
-              self.nome = nome
-              self.sobrenome = sobrenome
-              self.__cpf = cpf
-              self.endereco = endereco
+#professor fechou ==
+class Professor(Pessoa):
+       def __init__ (self, nome, sobrenome, endereco, cpf, turma, nomeUsuario, email, senha, formacao, disciplinas, segmentos):
+              super().__init__(nome, sobrenome, endereco, cpf, turma, nomeUsuario, email, senha)
               self.formacao = formacao
               self.disciplinas = disciplinas
               self.segmentos = segmentos
-              self.turma = turma
-              self.__nomeUsuario = nomeUsuario
-              self.__email = email
-              self.__senha = senha
 
-       @property
-       def cpf (self):
-              return self.__cpf
-       
-       @property
-       def nomeUsuario(self):
-              return self.__nomeUsuario
-       
-       @property
-       def email(self):
-              return self.__email
-       
-       @property
-       def senha(self):
-              return self.__senha
-
+#ensino médio fechou ==
 class EnsinoMedio(Aluno):
-       def __init__(self, eletromecanica, informatica, mecatronica):
+       def __init__(self, mecatronica, eletromecanica, informatica):
+              self.mecatronica = mecatronica
               self.eletromecanica = eletromecanica
               self.informatica = informatica
-              self.mecatronica = mecatronica
 
+#turmas fechou ==
 class Turma:
        def __init__(self, nome, segmentoEnsino, opcaoCurso, anoEscolar, alunos, professores, disciplinas):
               self.nome = nome
@@ -77,11 +81,13 @@ class Turma:
               self.professores = professores
               self.disciplinas = disciplinas
 
+#superior fechou ==
 class Superior(Aluno):
-       def __init__(self, pedagogia, cienciaComputacao):
-              self.pedagogia = pedagogia
+       def __init__(self, cienciaComputacao, pedagogia):
               self.cienciaComputacao = cienciaComputacao
-       
+              self.pedagogia = pedagogia
+
+#disciplinas fechou ==
 class Disciplinas:
        def __init__(self, id, descricao, segmento, professorTitular):
               self.__id = id
@@ -92,16 +98,17 @@ class Disciplinas:
        @property
        def id(self):
               return self.__id
+       @id.setter
+       def id(self, novo):
+              self.__self = novo
        
        @property
        def descricao(self):
               return self.__descricao
-       
+       @descricao.setter
+       def descricao(self, novo):
+              self.__descricao = novo
+
        @property
        def segmento(self):
               return self.__segmento
-
-
-
-
-
