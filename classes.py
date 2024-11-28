@@ -65,10 +65,13 @@ class Professor(Pessoa):
 
 #ensino médio fechou ==
 class EnsinoMedio(Aluno):
-       def __init__(self, mecatronica, eletromecanica, informatica):
-              self.mecatronica = mecatronica
-              self.eletromecanica = eletromecanica
-              self.informatica = informatica
+       def __init__(self, cursos):
+              self.cursos = cursos
+
+#superior fechou ==
+class Superior(Aluno):
+       def __init__(self, cursos):
+              self.cursos = cursos
 
 #turmas fechou ==
 class Turma:
@@ -80,12 +83,6 @@ class Turma:
               self.alunos = alunos
               self.professores = professores
               self.disciplinas = disciplinas
-
-#superior fechou ==
-class Superior(Aluno):
-       def __init__(self, cienciaComputacao, pedagogia):
-              self.cienciaComputacao = cienciaComputacao
-              self.pedagogia = pedagogia
 
 #disciplinas fechou ==
 class Disciplinas:
