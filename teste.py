@@ -1,27 +1,7 @@
-i = 5
-teste = 'teste'
+teste1 = ['a']
 
-teste2 = teste + str(i)
-print(teste2)
+def teste(teste1, teste2):
+    teste1.append(teste2)
 
-from classes import EnsinoMedio
-
-#ensinoMedio = EnsinoMedio(['Mecatrônica', 'Eletromecânica', 'Informática'])
-#
-#print(ensinoMedio.cursos[0])
-
-ensinos = []
-for i in range(3):
-    ensinoMedio = EnsinoMedio(['Mecatrônica', 'Eletromecânica', 'Informática'])
-    ensinos.append(ensinoMedio)
-
-print(ensinos[2].cursos[2])
-
-ensinoMedio = EnsinoMedio(['Mecatrônica', 'Eletromecânica', 'Informática'])
-
-x = ['teste']
-#y = 'teste2'
-z = x + list(ensinoMedio)
-
-print(z)
-
+teste(teste1, 'teste')
+print(teste1)

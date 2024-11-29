@@ -70,7 +70,7 @@ class Aluno(Pessoa):
        def __str__(self):
               return f'''
 {super().__str__()}
-Turma: {self.turma}
+Turma: {self.turma.nome}
 Filiação: {self.filiacao}
 Email Responsável: {self.__emailResponsavel}
 Registro Acadêmico: {self.registroAcad}

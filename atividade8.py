@@ -65,12 +65,12 @@ for i in range(5):
     alunosTemporario = []
     for j in range(20):
         if i < 3:
-            alunoX = Aluno(('aluno' + str(i) + '-' + str(j)), (str(i) + '-' + str(j)), ('endereco' + str(i) + '-' + str(j)), ('cpf' + str(i) + '-' + str(j)), [turmas[i]], ('aln.' + str(i) + '-' + str(j)), ('aln.' + str(i) + '-' + str(j) + '@gmail.com'), ('aln' + str(i) + '-' + str(j)), (str(i) + '-' + str(j)), ('pai.' + str(i) + '-' + str(j)), (str(i) + '-' + str(j)), 'Ensino Médio')
+            alunoX = Aluno(('aluno' + str(i) + '-' + str(j)), (str(i) + '-' + str(j)), ('endereco' + str(i) + '-' + str(j)), ('cpf' + str(i) + '-' + str(j)), ('aln' + str(i) + '-' + str(j)), ('aln.' + str(i) + '-' + str(j) + '@gmail.com'), ('aln.' + str(i) + '-' + str(j)), turmas[i], (str(i) + '-' + str(j)), ('pai.' + str(i) + '-' + str(j)), (str(i) + '-' + str(j)), 'Ensino Médio')
             alunos.append(alunoX)
             alunosTemporario.append(alunoX)
             #print(alunoX)
         else:
-            alunoX = Aluno(('aluno' + str(i) + '-' + str(j)), (str(i) + '-' + str(j)), ('endereco' + str(i) + '-' + str(j)), ('cpf' + str(i) + '-' + str(j)), [turmas[i]], ('aln.' + str(i) + '-' + str(j)), ('aln.' + str(i) + '-' + str(j) + '@gmail.com'), ('aln' + str(i) + '-' + str(j)), (str(i) + '-' + str(j)), '', (str(i) + '-' + str(j)), 'Ensino Superior')
+            alunoX = Aluno(('aluno' + str(i) + '-' + str(j)), (str(i) + '-' + str(j)), ('endereco' + str(i) + '-' + str(j)), ('cpf' + str(i) + '-' + str(j)), ('aln' + str(i) + '-' + str(j)), ('aln.' + str(i) + '-' + str(j)), ('aln.' + str(i) + '-' + str(j) + '@gmail.com'), turmas[i], (str(i) + '-' + str(j)), '', (str(i) + '-' + str(j)), 'Ensino Superior')
             alunos.append(alunoX)
             alunosTemporario.append(alunoX)
 
@@ -114,7 +114,7 @@ Para FINALIZAR o atendimento, digite "fim".''')
     entrada = input('')
 
     if entrada.upper() == 'TURMA':
-        crudTurma(turmas)
+        crudTurma(turmas, alunos, professores, disciplinas)
     elif entrada.upper() == 'DISCIPLINA':
         crudDisciplina()
     elif entrada.upper() == 'PROFESSOR':
