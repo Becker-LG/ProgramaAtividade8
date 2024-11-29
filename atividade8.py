@@ -90,6 +90,7 @@ for i in range(5):
 11. É possível inserir, editar, desativar e excluir uma disciplina;
 13. É possível inserir, editar, desativar e excluir um professor;
 15. É possível inserir, editar, desativar e excluir um estudante.
+filiação é o nome do pai e da mãe
 """
 
 print('')
@@ -114,7 +115,7 @@ Para FINALIZAR o atendimento, digite "fim".''')
     entrada = input('')
 
     if entrada.upper() == 'TURMA':
-        crudTurma(turmas, alunos, professores, disciplinas)
+        crudTurma(turmas, alunos, professores, disciplinas, ensinoMedio, ensinoSuperior)
     elif entrada.upper() == 'DISCIPLINA':
         crudDisciplina()
     elif entrada.upper() == 'PROFESSOR':
