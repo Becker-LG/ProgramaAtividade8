@@ -3,8 +3,9 @@
 #CLASSES
 from classes import Aluno
 from classes import Professor
-from classes import EnsinoMedio
-from classes import Superior
+#from classes import EnsinoMedio
+#from classes import Superior
+from classes import SegmentoEnsino
 from classes import Turma
 from classes import Disciplinas
 
@@ -20,7 +21,12 @@ from classes import Disciplinas
 """
 
 #CRUD TURMA ==================================================================================================================================================
-def crudTurma(turmas, alunos, professores, disciplinas, ensinoMedio, ensinoSuperior):
+def crudTurma(turmasY, alunosY, professoresY, disciplinasY, segmentosEnsinoY):
+    turmas = turmasY
+    alunos = alunosY
+    professores = professoresY
+    disciplinas = disciplinasY
+    segmentosEnsino = segmentosEnsinoY
 
     x = 0
     while x == 0:
@@ -53,8 +59,28 @@ No momento possuímos {len(turmas)}, sendo:''')
 Para inserir uma turma, responda tais perguntas:
 ''')
             nomeX = input('Insira o nome da Turma: ')
-            segmentoEnsinoX = input('Insira o Segmento de Ensino: ')
-            opcaoCursoX = input('Insira a Opção de Curso: ')
+            
+            verificar = 0
+            while verificar == 0:
+                segmentoEnsinoX = input('Insira o Segmento de Ensino: ')
+                for i in range(len(segmentosEnsino)):
+                    if segmentoEnsinoX == segmentosEnsino[i].segmento:
+                        verificar += 1
+                        print('Segmento de Ensino Válida!')
+                if verificar == 0:
+                    print('Segmento de Ensino Inválido!')
+
+            verificar = 0
+            while verificar == 0:
+                opcaoCursoX = input('Insira a Opção de Curso: ')
+                for i in range(len(segmentosEnsino)):
+                    for j in range(len(segmentosEnsino[i].cursos)):
+                        if segmentosEnsino[i].cursos[j] == opcaoCursoX:
+                            verificar += 1
+                            print('Opção de Curso Válida!')
+                if verificar == 0:
+                    print('Opção de Curso Inválida!')
+
             anoEscolarX = input('Insira o Ano Escolar:')
             
             alunosX = []
@@ -87,7 +113,6 @@ Para inserir uma turma, responda tais perguntas:
             turmaX = Turma(nomeX, segmentoEnsinoX, opcaoCursoX, anoEscolarX, alunosX, professoresX, disciplinasX)
             turmas.append(turmaX)
             print('Turma Criada!')
-            continue
         
         #==========================================================
         elif entrada.upper() == "EDITAR":
@@ -96,7 +121,7 @@ Qual turma você deseja editar?
 No momento possuímos {len(turmas)}, sendo:''')
             for i in range(len(turmas)):
                 print(f'{i+1}ª turma: {turmas[i].opcaoCurso}')
-            escolha = input(f'Digite um número entre 1 e {len(turmas)} para escolher a turma: ')
+            escolha = int(input(f'Digite um número entre 1 e {len(turmas)} para escolher a turma: '))
 
             print(f'''
     O que você deseja editar?
@@ -106,7 +131,8 @@ No momento possuímos {len(turmas)}, sendo:''')
     Para editar o ANO ESCOLAR, insira "ano escolar";
     Para editar os ALUNOS, insira "alunos";
     Para editar os PROFESSORES, inrira "professores";
-    Para editar as DISCIPLINAS, insira "disciplinas".
+    Para editar as DISCIPLINAS, insira "disciplinas";
+    Para cancelar, insira "sair".
                   ''')
             editar = input('')
 
@@ -114,6 +140,8 @@ No momento possuímos {len(turmas)}, sendo:''')
                 edicao = input('Insira o novo nome: ')
                 turmas[escolha].nome = edicao
                 print(f'Nome modificado para {edicao}!')
+
+
             elif editar.upper() == 'SEGMENTO DE ENSINO':
                 if (turmas[escolha].segmentoEnsino).upper() == 'ENSINO MEDIO':
                     turmas[escolha].segmentoEnsino = 'Ensino Superior'
@@ -121,52 +149,79 @@ No momento possuímos {len(turmas)}, sendo:''')
                 elif (turmas[escolha.segmentoEnsino]).upper() == 'ENSINO SUPERIOR':
                     turmas[escolha].segmentoEnsino = 'Ensino Medio'
                     print('Segmento de Ensino modificado para Ensino Médio!')
+
+
             elif editar.upper() == 'OPÇÃO DE CURSO':
-                edicao = input('Insira a nova Opção de Curso: ')
                 verificar = 0
-                for i in range(len(ensinoMedio)):
-                    if ensinoMedio[i] == edicao:
-                        verificar += 1
-                if verificar == 0:
-                    print('Foi inserido uma opção de curso inválida!')
-                else:
-                    turmas[escolha].opcaoCurso = edicao
-                    print(f'Opção de Curso modificado para {edicao}')
+                while verificar == 0:
+                    edicao = input('Insira a nova Opção de Curso: ')
+                    for i in range(len(segmentosEnsino)):
+                        for j in range(len(segmentosEnsino[i].cursos)):
+                            if segmentosEnsino[i].cursos[j] == edicao:
+                                verificar += 1
+                        if verificar == 0:
+                            print('Opção de Curso Válida!')
+                            turmas[escolha].opcaoCurso = edicao
+                        else:
+                            print(f'Opção de Curso Inválida!')
+
+
             elif editar.upper() == 'ANO ESCOLAR':
                 edicao = input('Insira o novo Ano Escolar:')
                 turmas[escolha].anoEscolar = edicao
                 print(f'Ano Escolar modificado para {edicao}!')
+
+
             elif editar.upper() == 'ALUNOS':
+                print(len(turmas[escolha].alunos))
                 edicaoAluno = input('Você deseja remover ou adicionar algum aluno? ')
                 if edicaoAluno.upper() == 'REMOVER':
-                    edicao = input('Qual estudante você deseja remover? ')
                     verificar = 0
-                    for i in range(len(turmas[escolha].alunos)):
-                        if edicao == turmas[escolha].alunos[i]:
-                            verificar += 1
-                    if verificar > 0:
-                        try:
-                            (turmas[escolha].alunos[i]).remove(edicao)
-                        except ValueError:
-                            print('O nome informado não existe na turma!')
+                    while verificar == 0:
+                        edicao = input('Qual aluno você deseja remover? ')
+                        for i in range(len(turmas[escolha].alunos)):
+                            if edicao == turmas[escolha].alunos[i].nome:
+                                verificar += 1
+                                turmas[escolha].alunos.pop(i)
+                        if verificar == 0:
+                                print('O aluno informado não existe na turma!')
                 elif edicaoAluno.upper() == 'ADICIONAR':
                     edicao = input('Insira o nome do estudante que você deseja adicionar: ')
                     verificar = -1
                     for i in range(len(alunos)):
                         if edicao == alunos[i].nome:
+                            turmas[escolha].alunos.append(alunos[i])
                             verificar = i
-                    if verificar > -1:
-                        (turmas[escolha].alunos).append(alunos[verificar])
+                    #if verificar > -1:
+                    #    turmas[escolha].alunos.append(alunos[verificar])
 
 
 
             elif editar.upper() == 'PROFESSORES':
                 edicaoProfessor = input('Você deseja remover ou adicionar algum professor?')
-                    
+                if edicaoProfessor.upper() == 'REMOVER':
+                    verificar = 0
+                    while verificar == 0:
+                        edicao = input('Qual professor você deseja remover? ')
+                        for i in range(len(turmas[escolha].professores)):
+                            if edicao == turmas[escolha].professores[i].nome:
+                                verificar += 1
+                                turmas[escolha].professores.pop(i)
+                        if verificar == 0:
+                                print('O professor informado não existe na turma!')
+                elif edicaoProfessor.upper() == 'ADICIONAR':
+                    edicao = input('Insira o nome do professor que você deseja adicionar: ')
+                    verificar = -1
+                    for i in range(len(professores)):
+                        if edicao == professores[i].nome:
+                            verificar = i
+                    if verificar > -1:
+                        (turmas[escolha].professores).append(professores[verificar])
 
-                    
 
-            continue
+            elif editar.upper() == 'SAIR':
+                print('')
+                return turmas
         #==========================================================
         elif entrada.upper() == "DESATIVAR":
             print('')

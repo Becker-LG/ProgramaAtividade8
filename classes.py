@@ -94,14 +94,10 @@ Formação: {self.formacao}
 Disciplinas: {self.disciplinas}
 Segmentos de Ensino: {self.segmentos}'''
 
-#ensino médio fechou ==
-class EnsinoMedio:
-       def __init__(self, cursos):
-              self.cursos = cursos
-
-#superior fechou ==
-class Superior:
-       def __init__(self, cursos):
+#segmento de ensino
+class SegmentoEnsino:
+       def __init__(self, segmento, cursos):
+              self.segmento = segmento
               self.cursos = cursos
 
 #turmas fechou ==
