@@ -3,7 +3,7 @@
 #classe aluno em, informática, mecatronica, eletro, aluno superior, pedagogia, ciencias jsjs
 #transferencia, alunos s podem cursar os dois, 
 class Pessoa:
-       def __init__(self, nome, sobrenome, endereco, cpf, nomeUsuario, email, senha):
+       def __init__(self, nome, sobrenome, endereco, cpf, nomeUsuario, email, senha, ativo):
               self.nome = nome
               self.sobrenome = sobrenome
               self.endereco = endereco
@@ -11,6 +11,7 @@ class Pessoa:
               self.__nomeUsuario = nomeUsuario
               self.__email = email
               self.__senha = senha
+              self.ativo = ativo
 
        @property
        def cpf(self):
@@ -48,12 +49,13 @@ Endereço: {self.endereco}
 CPF: {self.__cpf}
 Usuário: {self.__nomeUsuario}
 Email: {self.__email}
-Senha: {self.__senha}'''
+Senha: {self.__senha}
+ativo: {self.ativo}'''
 
 #aluno fechou ==
 class Aluno(Pessoa):
-       def __init__(self, nome, sobrenome, endereco, cpf, nomeUsuario, email, senha, turma, filiacao, emailResponsavel, registroAcad, segmentoEnsino):
-              super().__init__(nome, sobrenome, endereco, cpf, nomeUsuario, email, senha)
+       def __init__(self, nome, sobrenome, endereco, cpf, nomeUsuario, email, senha, ativo, turma, filiacao, emailResponsavel, registroAcad, segmentoEnsino):
+              super().__init__(nome, sobrenome, endereco, cpf, nomeUsuario, email, senha, ativo)
               self.turma = turma
               self.filiacao = filiacao 
               self.__emailResponsavel = emailResponsavel
@@ -79,8 +81,8 @@ Segmento de Ensino: {self.segmentoEnsino}'''
 
 #professor fechou ==
 class Professor(Pessoa):
-       def __init__ (self, nome, sobrenome, endereco, cpf, nomeUsuario, email, senha, turma, formacao, disciplinas, segmentos):
-              super().__init__(nome, sobrenome, endereco, cpf, nomeUsuario, email, senha)
+       def __init__ (self, nome, sobrenome, endereco, cpf, nomeUsuario, email, senha, ativo, turma, formacao, disciplinas, segmentos):
+              super().__init__(nome, sobrenome, endereco, cpf, nomeUsuario, email, senha, ativo)
               self.turma = turma
               self.formacao = formacao
               self.disciplinas = disciplinas
@@ -96,13 +98,14 @@ Segmentos de Ensino: {self.segmentos}'''
 
 #segmento de ensino
 class SegmentoEnsino:
-       def __init__(self, segmento, cursos):
+       def __init__(self, segmento, cursos, ativo):
               self.segmento = segmento
               self.cursos = cursos
+              self.cursos = ativo
 
 #turmas fechou ==
 class Turma:
-       def __init__(self, nome, segmentoEnsino, opcaoCurso, anoEscolar, alunos, professores, disciplinas):
+       def __init__(self, nome, segmentoEnsino, opcaoCurso, anoEscolar, alunos, professores, disciplinas, ativo):
               self.nome = nome
               self.segmentoEnsino = segmentoEnsino
               self.opcaoCurso = opcaoCurso
@@ -110,6 +113,7 @@ class Turma:
               self.alunos = alunos
               self.professores = professores
               self.disciplinas = disciplinas
+              self.ativo = ativo
 
        def __str__(self):
               return f'''
@@ -119,15 +123,17 @@ Opção de Curso: {self.opcaoCurso}
 Ano Escolar: {self.anoEscolar}
 Alunos: {len(self.alunos)}
 Professores: {len(self.professores)}
-Disciplinas: {len(self.disciplinas)}'''
+Disciplinas: {len(self.disciplinas)}
+Ativo: {self.ativo}'''
 
 #disciplinas fechou ==
 class Disciplinas:
-       def __init__(self, id, descricao, segmento, professorTitular):
+       def __init__(self, id, descricao, segmento, professorTitular, ativo):
               self.__id = id
               self.__descricao = descricao
               self.__segmento = segmento
               self.professorTitular = professorTitular
+              self.ativo = ativo
 
        @property
        def id(self):
@@ -152,4 +158,5 @@ class Disciplinas:
 ID: {self.__id}
 Descrição: {self.__descricao}
 Segmento de Ensino: {self.__segmento}
-Professor Titular: {self.professorTitular}'''
+Professor Titular: {self.professorTitular}
+Ativo: {self.ativo}'''
