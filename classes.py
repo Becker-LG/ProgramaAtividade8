@@ -81,9 +81,9 @@ Segmento de Ensino: {self.segmentoEnsino}'''
 
 #professor fechou ==
 class Professor(Pessoa):
-       def __init__ (self, nome, sobrenome, endereco, cpf, nomeUsuario, email, senha, ativo, turma, formacao, disciplinas, segmentos):
+       def __init__ (self, nome, sobrenome, endereco, cpf, nomeUsuario, email, senha, ativo, turmas, formacao, disciplinas, segmentos):
               super().__init__(nome, sobrenome, endereco, cpf, nomeUsuario, email, senha, ativo)
-              self.turma = turma
+              self.turmas = turmas
               self.formacao = formacao
               self.disciplinas = disciplinas
               self.segmentos = segmentos
@@ -91,10 +91,10 @@ class Professor(Pessoa):
        def __str__(self):
               return f'''
 {super().__str__()}
-Turmas: {self.turma}
+Turmas: {len(self.turmas)}
 Formação: {self.formacao}
-Disciplinas: {self.disciplinas}
-Segmentos de Ensino: {self.segmentos}'''
+Disciplinas: {len(self.disciplinas)}
+Segmentos de Ensino: {len(self.segmentos)}'''
 
 #segmento de ensino
 class SegmentoEnsino:
@@ -127,7 +127,7 @@ Disciplinas: {len(self.disciplinas)}
 Ativo: {self.ativo}'''
 
 #disciplinas fechou ==
-class Disciplinas:
+class Disciplina:
        def __init__(self, id, descricao, segmento, professorTitular, ativo):
               self.__id = id
               self.__descricao = descricao
@@ -140,7 +140,7 @@ class Disciplinas:
               return self.__id
        @id.setter
        def id(self, novo):
-              self.__self = novo
+              self.__id = novo
        
        @property
        def descricao(self):

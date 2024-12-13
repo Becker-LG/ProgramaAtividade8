@@ -2,7 +2,7 @@ from classes import Aluno
 from classes import Professor
 from classes import SegmentoEnsino
 from classes import Turma
-from classes import Disciplinas
+from classes import Disciplina
 
 #CRIAÇÃO DOS OBJETOS ==================================================================================================================================================================
 
@@ -23,7 +23,7 @@ aluno8 = Aluno('aluno1-8', '1-8', '1-8', '1-8', 'aluno1-8', 'aluno1-8@gmail.com'
 aluno9 = Aluno('aluno1-9', '1-9', '1-9', '1-9', 'aluno1-9', 'aluno1-9@gmail.com', 'aluno1-9', 'Sim', turma1, '', 'pai1-9@gmail.com', '1-9', segmentosEnsino[0].segmento)
 aluno10 = Aluno('aluno1-10', '1-10', '1-10', '1-10', 'aluno1-10', 'aluno1-10@gmail.com', 'aluno1-10', 'Sim', turma1, '', 'pai1-10@gmail.com', '1-10', segmentosEnsino[0].segmento)
 alunos1 = [aluno1, aluno2, aluno3, aluno4, aluno5, aluno6, aluno7, aluno8, aluno9, aluno10]
-professor1 = Professor('professor1-1', '1-1', '1-1', '1-1', 'professor1-1', 'professor1-1@gmail.com', 'professor1-1', 'Sim', turma1, '1-1', [], segmentosEnsino[0].segmento)
+professor1 = Professor('professor1-1', '1-1', '1-1', '1-1', 'professor1-1', 'professor1-1@gmail.com', 'professor1-1', 'Sim', [], '1-1', [], [])
 
 
 turma2 = Turma('turma2', segmentosEnsino[0].segmento, segmentosEnsino[0].cursos[1], '2024', [], [], [], 'Sim')
@@ -38,7 +38,7 @@ aluno18 = Aluno('aluno2-18', '2-18', '2-18', '2-18', 'aluno2-18', 'aluno2-18@gma
 aluno19 = Aluno('aluno2-19', '2-19', '2-19', '2-19', 'aluno2-19', 'aluno2-19@gmail.com', 'aluno2-19', 'Sim', turma2, '', 'pai2-19@gmail.com', '2-19', segmentosEnsino[0].segmento)
 aluno20 = Aluno('aluno2-20', '2-20', '2-20', '2-20', 'aluno2-20', 'aluno2-20@gmail.com', 'aluno2-20', 'Sim', turma2, '', 'pai2-20@gmail.com', '2-20', segmentosEnsino[0].segmento)
 alunos2 = [aluno11, aluno12, aluno13, aluno14, aluno15, aluno16, aluno17, aluno18, aluno19, aluno20]
-professor2 = Professor('professor1-2', '1-2', '1-2', '1-2', 'professor1-2', 'professor1-2@gmail.com', 'professor1-2', 'Sim', turma2, '1-2', [], segmentosEnsino[0].segmento)
+professor2 = Professor('professor1-2', '1-2', '1-2', '1-2', 'professor1-2', 'professor1-2@gmail.com', 'professor1-2', 'Sim', [], '1-2', [], [])
 
 
 turma3 = Turma('turma3', segmentosEnsino[0].segmento, segmentosEnsino[0].cursos[2], '2024', [], [], [], 'Sim')
@@ -53,7 +53,7 @@ aluno28 = Aluno('aluno3-38', '3-38', '3-38', '3-38', 'aluno3-38', 'aluno3-38@gma
 aluno29 = Aluno('aluno3-39', '3-39', '3-39', '3-39', 'aluno3-39', 'aluno3-39@gmail.com', 'aluno3-39', 'Sim', turma3, '', 'pai3-39@gmail.com', '3-39', segmentosEnsino[0].segmento)
 aluno30 = Aluno('aluno3-40', '3-40', '3-40', '3-40', 'aluno3-40', 'aluno3-40@gmail.com', 'aluno3-40', 'Sim', turma3, '', 'pai3-40@gmail.com', '3-40', segmentosEnsino[0].segmento)
 alunos3 = [aluno21, aluno22, aluno23, aluno24, aluno25, aluno26, aluno27, aluno28, aluno29, aluno30]
-professor3 = Professor('professor1-3', '1-3', '1-3', '1-3', 'professor1-3', 'professor1-3@gmail.com', 'professor1-3', 'Sim', turma3, '1-3', [], segmentosEnsino[0].segmento)
+professor3 = Professor('professor1-3', '1-3', '1-3', '1-3', 'professor1-3', 'professor1-3@gmail.com', 'professor1-3', 'Sim', [], '1-3', [], [])
 
 
 turma4 = Turma('turma4', segmentosEnsino[1].segmento, segmentosEnsino[1].cursos[0], '2024', [], [], [], 'Sim')
@@ -68,7 +68,7 @@ aluno38 = Aluno('aluno4-48', '4-48', '4-48', '4-48', 'aluno4-48', 'aluno4-48@gma
 aluno39 = Aluno('aluno4-49', '4-49', '4-49', '4-49', 'aluno4-49', 'aluno4-49@gmail.com', 'aluno4-49', 'Sim', turma4, '', 'pai4-49@gmail.com', '4-49', segmentosEnsino[1].segmento)
 aluno40 = Aluno('aluno4-50', '4-50', '4-50', '4-50', 'aluno4-50', 'aluno4-50@gmail.com', 'aluno4-50', 'Sim', turma4, '', 'pai4-50@gmail.com', '4-50', segmentosEnsino[1].segmento)
 alunos4 = [aluno31, aluno32, aluno33, aluno34, aluno35, aluno36, aluno37, aluno38, aluno39, aluno40]
-professor4 = Professor('professor1-4', '1-4', '1-4', '1-4', 'professor1-4', 'professor1-4@gmail.com', 'professor1-4', 'Sim', turma4, '1-4', [], segmentosEnsino[1].segmento)
+professor4 = Professor('professor1-4', '1-4', '1-4', '1-4', 'professor1-4', 'professor1-4@gmail.com', 'professor1-4', 'Sim', [], '1-4', [], [])
 
 
 turma5 = Turma('turma5', segmentosEnsino[1].segmento, segmentosEnsino[1].cursos[1], '2024', [], [], [], 'Sim')
@@ -83,15 +83,15 @@ aluno48 = Aluno('aluno5-58', '5-58', '5-58', '5-58', 'aluno5-58', 'aluno5-58@gma
 aluno49 = Aluno('aluno5-59', '5-59', '5-59', '5-59', 'aluno5-59', 'aluno5-59@gmail.com', 'aluno5-59', 'Sim', turma5, '', 'pai5-59@gmail.com', '5-59', segmentosEnsino[1].segmento)
 aluno50 = Aluno('aluno5-60', '5-60', '5-60', '5-60', 'aluno5-60', 'aluno5-60@gmail.com', 'aluno5-60', 'Sim', turma5, '', 'pai5-60@gmail.com', '5-60', segmentosEnsino[1].segmento)
 alunos5 = [aluno41, aluno42, aluno43, aluno44, aluno45, aluno46, aluno47, aluno48, aluno49, aluno50]
-professor5 = Professor('professor1-5', '1-5', '1-5', '1-5', 'professor1-5', 'professor1-5@gmail.com', 'professor1-5', 'Sim', turma5, '1-5', [], segmentosEnsino[1].segmento)
+professor5 = Professor('professor1-5', '1-5', '1-5', '1-5', 'professor1-5', 'professor1-5@gmail.com', 'professor1-5', 'Sim', [], '1-5', [], [])
 
 professores = [professor1, professor2, professor3, professor4, professor5]
 
-disciplina1 = Disciplinas(1, '1-1', segmentosEnsino[0].segmento, professores[0], 'Sim')
-disciplina2 = Disciplinas(2, '1-2', segmentosEnsino[0].segmento, professores[1], 'Sim')
-disciplina3 = Disciplinas(3, '1-3', segmentosEnsino[0].segmento, professores[2], 'Sim')
-disciplina4 = Disciplinas(4, '1-4', segmentosEnsino[1].segmento, professores[3], 'Sim')
-disciplina5 = Disciplinas(5, '1-5', segmentosEnsino[1].segmento, professores[4], 'Sim')
+disciplina1 = Disciplina('1', '1-1', segmentosEnsino[0].segmento, professores[0], 'Sim')
+disciplina2 = Disciplina('2', '1-2', segmentosEnsino[0].segmento, professores[1], 'Sim')
+disciplina3 = Disciplina('3', '1-3', segmentosEnsino[0].segmento, professores[2], 'Sim')
+disciplina4 = Disciplina('4', '1-4', segmentosEnsino[1].segmento, professores[3], 'Sim')
+disciplina5 = Disciplina('5', '1-5', segmentosEnsino[1].segmento, professores[4], 'Sim')
 
 alunos = [alunos1, alunos2, alunos3, alunos4, alunos5]
 disciplinas = [disciplina1, disciplina2, disciplina3, disciplina4, disciplina5]
@@ -99,6 +99,12 @@ turmas = [turma1, turma2, turma3, turma4, turma5]
 
 for i in range(len(professores)):
     professores[i].disciplinas.append(disciplinas[i])
+    professores[i].turmas.append(turmas[i])
+    if i < 3:
+        professores[i].segmentos.append(segmentosEnsino[0].segmento)
+    else:
+        professores[i].segmentos.append(segmentosEnsino[1].segmento)
+
 
 for i in range(len(turmas)):
     for j in range(len(alunos[i])):
@@ -117,9 +123,29 @@ def imprimirTurma(turma):
 def inserirTurma():
     print('Insira as seguintes informações:')
     nome = input('Nome: ')
+
+    x = 0
     segmentoEnsino = input('Segmento de Ensino: ')
+    for i in range(len(segmentosEnsino)):
+        if segmentoEnsino == segmentosEnsino[i].segmento:
+            print(f'Segmento de Ensino {segmentoEnsino} existente!')
+            x += 1
+    if x == 0:
+        print(f'Segmento de Ensino {segmentoEnsino} é inexistente!')
+        return
+
     opcaoCurso = input('Opção de Curso: ')
+    for i in range(len(segmentosEnsino)):
+        for j in range(len(segmentosEnsino[i].cursos)):
+            if opcaoCurso == segmentosEnsino[i].cursos[j]:
+                print(f'Opção de Curso {opcaoCurso} compatível!')
+                x += 1
+    if x == 0:
+        print(f'Opção de Curso {opcaoCurso} é incompatível ou inexistente!')
+        return
+
     anoEscolar = input('Ano Escolar: ')
+
     alunosY = []
     while True:
         try:
@@ -135,6 +161,7 @@ def inserirTurma():
                             x += 1
                 if x == 0:
                     print('Aluno Inexistente!')
+                    return
             break
         except:
             print('Não foi inserido um número, tente novamente!')
@@ -154,6 +181,7 @@ def inserirTurma():
                         x += 1
                 if x == 0:
                     print('Professor Inexistente!')
+                    return
             break
         except:
             print('Não foi inserido um número, tente novamente!')
@@ -173,12 +201,22 @@ def inserirTurma():
                         x += 1
                 if x == 0:
                     print('Disciplina Inexistente!')
+                    return
             break
         except:
             print('Não foi inserido um número, tente novamente!')
             continue
     
-    turmaX = Turma(nome, segmentoEnsino, opcaoCurso, anoEscolar, alunosY, professoresY, disciplinasY)
+    ativo = input('A turma será ativa?')
+    if ativo.upper() == 'SIM':
+        ativo = 'Sim'
+    elif ativo.upper() == 'NÃO':
+        ativo = 'Não'
+    else:
+        print('Opção Inválida!')
+        return
+    
+    turmaX = Turma(nome, segmentoEnsino, opcaoCurso, anoEscolar, alunosY, professoresY, disciplinasY, ativo)
     turmas.append(turmaX)
     print(turmaX)
 
@@ -337,7 +375,7 @@ def excluirTurma(turma):
     opcaoX = input('Você tem certeza de que deseja excluir a turma? ')
     if opcaoX.upper() == 'SIM':
         turmas.remove(turmas[turma])
-        print('Turma excluída!')
+        print('Turma selecionada excluída!')
     elif opcaoX.upper() == 'NÃO':
         return
     else:
@@ -381,11 +419,312 @@ sair
     return
 
 #DISCIPLINAS ==================================================================================================================================================================
-def crudDisciplina():
+
+#=========================================================================== inserir
+def inserirDisciplina():
+    print('Insira as seguintes informações: ')
+
+    x = 0
+    id = input('Insira o ID: ')
+    for i in range(len(disciplinas)):
+        if id == disciplinas[i].id:
+            print(f'O ID {id} não está livre!')
+            x += 1
+            return
+    if x == 0:
+        print(f'O ID {id} está livre!')
+
+    descricao = input('Insira a descrição: ')
+    
+    x = 0
+    segmento = input('Insira o Segmento de Ensino: ')
+    for i in range(len(segmentosEnsino)):
+        if segmento == segmentosEnsino[i].segmento:
+            print(f'Segmento de Ensino {segmento} existente!')
+            x += 1
+    if x == 0:
+        print(f'Segmento de Ensino {segmento} é inexistente!')
+        return
+    
+    x = 0
+    professorTitular = input('Insira o Professor Titular: ')
+    for i in range(len(professores)):
+        if professorTitular == professores[i].nome:
+            print(f'Professor {professores[i].nome} existente!')
+            x += 1
+    if x == 0:
+        print(f'O Professor {professorTitular} é inexistente!')
+        return
+
+    ativo = input('A disciplina será ativa? ')
+    if ativo.upper() == 'SIM':
+        ativo = 'Sim'
+    elif ativo.upper() == 'NÃO':
+        ativo = 'Não'
+
+    disciplinaX = Disciplina(id, descricao, segmento, professorTitular, ativo)
+    disciplinas.append(disciplinaX)
+    print(disciplinaX)
+
+    return
+#=========================================================================== editar
+def editarDisciplina(disciplina):
+    print('O que você deseja editar?')
+    print('''
+ID
+Descrição
+Segmento De Ensino
+Professor Titular
+''')
+    opcaoX = input('')
+
+    if opcaoX.upper() == 'ID':
+        x = 0
+        idX = input('Insira o ID: ')
+        for i in range(len(disciplinas)):
+            if idX == disciplinas[i].id:
+                print(f'O ID {idX} não está livre!')
+                x += 1
+                return
+        if x == 0:
+            print(f'O ID {idX} está livre, e foi cadastrado!')
+            disciplinas[disciplina].id = idX
+    
+    elif opcaoX.upper() == 'DESCRIÇÃO':
+        descricaoX = input('Insira a Descrição: ')
+        disciplinas[disciplina].descricao = descricaoX
+        return
+    
+    elif opcaoX.upper() == 'SEGMENTO DE ENSINO':
+        if disciplinas[disciplina].segmento.upper() == 'ENSINO MEDIO':
+            disciplinas[disciplina].segmento = segmentosEnsino[1].segmento
+            print(f'Segmento de Ensino alterado para: {disciplinas[disciplina].segmento}')
+        elif disciplinas[disciplina].segmento.upper() == 'ENSINO SUPERIOR':
+            disciplinas[disciplina].segmento = segmentosEnsino[0].segmento
+            print(f'Segmento de Ensino alterado para: {disciplinas[disciplina].segmento}')
+        return
+    
+    elif opcaoX.upper() == 'PROFESSOR TITULAR':
+        x = 0
+        professorX = input('Insira o Professor que você deseja por no lugar: ')
+        for i in range(len(professores)):
+            if professorX == professores[i].nome:
+                print(f'Professor {professores[i].nome} posto no lugar!')
+                disciplinas[disciplina].professorTitular = professores[i]
+                x += 1
+        if x == 0:
+            print(f'O Professor {professorX} é inexistente!')
+            return
     return
 
+#=========================================================================== desativar
+def desativarDisciplina(disciplina):
+    opcaoX = input('Você tem certeza de que deseja desativar a disciplina? ')
+    if opcaoX.upper() == 'SIM':
+        disciplinas[disciplina].ativo = 'Não'
+        print(f'Turma {disciplinas[disciplina].id} desativada!')
+    elif opcaoX.upper() == 'NÃO':
+        return
+    else:
+        print('Opção Inválida!')
+    return
+
+#=========================================================================== excluir
+def excluirDisciplina(disciplina):
+    opcaoX = input('Você tem certeza de que deseja excluir a disciplina? ')
+    if opcaoX.upper() == 'SIM':
+        turmas.remove(disciplinas[disciplina])
+        print('Disciplina selecionada excluída!')
+    elif opcaoX.upper() == 'NÃO':
+        return
+    else:
+        print('Opção Inválida!')
+    return
+
+#===========================================================================
+def crudDisciplina():
+    print('O que fazer com a disciplina?')
+    print('''
+Inserir
+Editar
+Desativar
+Excluir
+sair
+''')
+    opcao = input()
+
+    if opcao.upper() == 'INSERIR':
+        return inserirDisciplina()
+    else:
+        print('qual disciplina acessar?')
+        for i in range(len(disciplinas)):
+            print(f'{i+1}º Disciplina: {disciplinas[i].descricao}')
+        escolha = int(input())-1
+    
+    if opcao.upper() == 'EDITAR':
+        return editarDisciplina(escolha)
+    elif opcao.upper() == 'DESATIVAR':
+        return desativarDisciplina(escolha)
+    elif opcao.upper() == 'EXCLUIR':
+        return excluirDisciplina(escolha)
+    elif opcao.upper() == 'SAIR':
+        return
+    else:
+        print('Opção Inválida!')
+
+    return
+
+
+
 #PROFESSORES ==================================================================================================================================================================
+
+#=========================================================================== inserir
+def inserirProfessor():
+    print('Insira as seguintes informações:')
+    nomeX = input('Insira o nome: ')
+    sobrenomeX = input('Insira o sobrenome: ')
+    enderecoX = input('Insira o endereço: ')
+    cpfX = input('Insira o cpf: ')
+    nomeUsuarioX = input('Insira o Nome de Usuário: ')
+    emailX = input('Insira o email: ')
+    senhaX = input('Insira a senha: ')
+
+    ativo = input('O professor será ativo?')
+    if ativo.upper() == 'SIM':
+        ativo = 'Sim'
+    elif ativo.upper() == 'NÃO':
+        ativo = 'Não'
+    else:
+        print('Opção Inválida!')
+        return
+    
+    turmasY = []
+    while True:
+        try:
+            turmasX = int(input('Quantidade de Turmas: '))
+            for i in range(turmasX):
+                x = 0
+                nomeY = input('Insira o nome da Turma: ')
+                for j in range(len(turmas)):
+                    if nomeY == turmas[j].nome:
+                        turmasY.append(turmas[j])
+                        print('Turma existente!')
+                        x += 1
+                if x == 0:
+                    print('Turma Inexistente!')
+                    return
+            break
+        except:
+            print('Não foi inserido um número, tente novamente!')
+            continue
+
+
+    formacaoX = input('Insira a formação: ')
+
+    disciplinasY = []
+    while True:
+        try:
+            disciplinasX = int(input('Quantidade de Disciplinas: '))
+            for i in range(disciplinasX):
+                x = 0
+                idX = input('Insira o id da Disciplina: ')
+                for j in range(len(disciplinas)):
+                    if idX == disciplinas[j].id:
+                        disciplinasY.append(disciplinas[j])
+                        print('Disciplina existente!')
+                        x += 1
+                if x == 0:
+                    print('Disciplina Inexistente!')
+                    return
+            break
+        except:
+            print('Não foi inserido um número, tente novamente!')
+            continue
+    
+    segmentosY = []
+    while True:
+        try:
+            segmentosX = int(input('Quantidade de Segmentos de Ensino: '))
+            for i in range(segmentosX):
+                x = 0
+                nomeY = input('Insira o Segmento de Ensino: ')
+                for j in range(len(segmentosEnsino)):
+                    if nomeY == segmentosEnsino[j].segmento:
+                        segmentosY.append(segmentosEnsino[j])
+                        print('Segmento de Ensino existente!')
+                        x += 1
+                if x == 0:
+                    print('Segmento de Ensino Inexistente!')
+                    return
+            break
+        except:
+            print('Não foi inserido um número, tente novamente!')
+            continue
+    
+    professorX = Professor(nomeX, sobrenomeX, enderecoX, cpfX, nomeUsuarioX, emailX, senhaX, ativo, turmasY, formacaoX, disciplinasY, segmentosY)
+    professores.append(professorX)
+    print(professorX)
+
+    return
+#=========================================================================== editar
+def editarProfessor(professor):
+    return
+
+#=========================================================================== desativar
+def desativarProfessor(professor):
+    opcaoX = input('Você tem certeza de que deseja desativar este Professor? ')
+    if opcaoX.upper() == 'SIM':
+        professores[professor].ativo = 'Não'
+        print(f'Turma {professores[professor].nome} desativado!')
+    elif opcaoX.upper() == 'NÃO':
+        return
+    else:
+        print('Opção Inválida!')
+    return
+
+#=========================================================================== excluir
+def excluirProfessor(professor):
+    opcaoX = input('Você tem certeza de que deseja excluir este Professor? ')
+    if opcaoX.upper() == 'SIM':
+        turmas.remove(professores[professor])
+        print('Professor selecionado excluído!')
+    elif opcaoX.upper() == 'NÃO':
+        return
+    else:
+        print('Opção Inválida!')
+    return
+
+#===========================================================================
 def crudProfessor():
+    print('O que fazer com o professor?')
+    print('''
+Inserir
+Editar
+Desativar
+Excluir
+sair
+''')
+    opcao = input()
+
+    if opcao.upper() == 'INSERIR':
+        return inserirProfessor()
+    else:
+        print('qual professor acessar?')
+        for i in range(len(professores)):
+            print(f'{i+1}º Professor: {professores[i].nome}')
+        escolha = int(input())-1
+    
+    if opcao.upper() == 'EDITAR':
+        return editarProfessor(escolha)
+    elif opcao.upper() == 'DESATIVAR':
+        return desativarProfessor(escolha)
+    elif opcao.upper() == 'EXCLUIR':
+        return excluirProfessor(escolha)
+    elif opcao.upper() == 'SAIR':
+        return
+    else:
+        print('Opção Inválida!')
+
     return
 
 #ESTUDANTES ==================================================================================================================================================================
@@ -409,6 +748,7 @@ filiação é o nome do pai e da mãe
 print('Bem vindo ao sistema estudantil!')
 x = 0
 while x == 0:
+    print('')
     print('O que você deseja fazer? ')
     print('''
 Acessar turmas
@@ -422,8 +762,10 @@ sair
         crudTurma()
         continue
     elif opcao.upper() == 'DISCIPLINAS':
+        crudDisciplina()
         continue
     elif opcao.upper() == 'PROFESSORES':
+        crudProfessor()
         continue
     elif opcao.upper() == 'ESTUDANTES':
         continue
@@ -432,3 +774,10 @@ sair
     else:
         print('Foi inseirdo uma opção inválida: ')
         continue
+
+#modificar o lance do professor, pq é uma lista de disciplinas, segmentos e turmas
+#ta individual, logo devo atualizar acho q só oq to fazendo agora, pq o resto nn mexe nessas partes do professor
+#arrumei
+#falta terminar o editar professor e os tudo sobre os estudantes
+#dai também os requisitos específicos
+#vapo
