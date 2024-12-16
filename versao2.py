@@ -240,14 +240,14 @@ def inserirTurma():
 def editarTurma(turma):
     print('o que você deseja editar?')
     print('''
-Nome
-Segmento de Ensino
-Opção de Curso
-Ano Escolar
-Alunos
-Professores
-Disciplinas
-sair
+Para editar Nome, insira "nome";
+Para editar Segmento de Ensino, insira "segmento de ensino";
+Para editar Opção de Curso, insira "opcao de curso";
+Para editar Ano Escolar, insira "ano escolar";
+Para editar Alunos, insira "alunos";
+Para editar Professores, insira "professores";
+Para editar Disciplinas, insira "disciplinas";
+Para Sair, insira "sair".
 ''')
     opcaoX = input()
 
@@ -268,8 +268,8 @@ sair
         print(turmas[turma]) #TEM QUE TIRAR DEPOIS *****
         return
     
-    elif opcaoX.upper() == 'OPÇÃO DE CURSO':
-        print('Escolha uma das opções abaixo:')
+    elif opcaoX.upper() == 'OPCAO DE CURSO':
+        print('Escolha uma das opções abaixo: ')
         if turmas[turma].segmentoEnsino.upper() == 'ENSINO MEDIO':
             for i in range(len(segmentosEnsino[0].cursos)):
                 print(f'{i+1}ª opção: {segmentosEnsino[0].cursos}')
@@ -282,6 +282,8 @@ sair
             escolha = int(input())
             turmas[turma].opcaoCurso = segmentosEnsino[1].cursos[escolha-1]
             print(f'Opção de curso alterada para: {segmentosEnsino[0].cursos[escolha-1]}')
+        else:
+            print('Opção Inválida!')
         print(turmas[turma]) #TEM QUE TIRAR DEPOIS *****
         return
     
@@ -293,7 +295,7 @@ sair
         return
     
     elif opcaoX.upper() == 'ALUNOS': 
-        escolha = input('Você deseja remover ou adicionar um estudante? ')
+        escolha = input('Você deseja remover ou adicionar um estudante? (remover/adicionar) ')
         if escolha.upper() == 'REMOVER':
             x = 0
             alunoX = input('Insira o aluno que você deseja alterar: ')
@@ -316,11 +318,13 @@ sair
                     x += 1
             if x == 0:
                 print(f'O Aluno {alunoX} é inexistente!')
+        else:
+            print('Opção Inválida!')
         print(turmas[turma]) #TEM QUE TIRAR DEPOIS *****
         return
     
     elif opcaoX.upper() == 'PROFESSORES':
-        escolha = input('Você deseja remover ou adicionar um Professor? ')
+        escolha = input('Você deseja remover ou adicionar um Professor? (remover/adicionar) ')
         if escolha.upper() == 'REMOVER':
             x = 0
             professorX = input('Insira o Professor que você deseja remover: ')
@@ -342,11 +346,13 @@ sair
                     x += 1
             if x == 0:
                 print(f'O Professor {professorX} é inexistente!')
+        else:
+            print('Opção Inválida!')
         print(turmas[turma]) #TEM QUE TIRAR DEPOIS *****
         return
 
     elif opcaoX.upper() == 'DISCIPLINAS':
-        escolha = input('Você deseja remover ou adicionar uma Disciplina? ')
+        escolha = input('Você deseja remover ou adicionar uma Disciplina? (adicionar/remover) ')
         if escolha.upper() == 'REMOVER':
             x = 0
             disciplinaX = input('Insira o ID da Disciplina que você deseja remover: ')
@@ -368,6 +374,8 @@ sair
                     x += 1
             if x == 0:
                 print(f'A Disciplina {disciplinaX} é inexistente!')
+        else:
+            print('Opção Inválida!')
         print(turmas[turma]) #TEM QUE TIRAR DEPOIS *****
         return
                 
@@ -380,7 +388,7 @@ sair
 
 #===========================================================================
 def desativarTurma(turma):
-    opcaoX = input('Você tem certeza de que deseja desativar a turma? ')
+    opcaoX = input('Você tem certeza de que deseja desativar a turma? (Sim/Não)')
     if opcaoX.upper() == 'SIM':
         turmas[turma].ativo = 'Não'
         print(f'Turma {turmas[turma].nome} desativada!')
@@ -393,7 +401,7 @@ def desativarTurma(turma):
 
 #===========================================================================
 def excluirTurma(turma):
-    opcaoX = input('Você tem certeza de que deseja excluir a turma? ')
+    opcaoX = input('Você tem certeza de que deseja excluir a turma? (Sim/Não)')
     if opcaoX.upper() == 'SIM':
         turmas.remove(turmas[turma])
         print('Turma selecionada excluída!')
@@ -405,15 +413,16 @@ def excluirTurma(turma):
     return
 
 #===========================================================================
+
 def crudTurma():
     print('O que fazer com a turma?')
     print('''
-Imprimir
-Inserir
-Editar
-Desativar
-Excluir
-sair
+Para Imprimir, insira "imprimir";
+Para Inserir, insira "inserir";
+Para Editar, insira "editar";
+Para Desativar, insira "desativar";
+Para Excluir, insira "excluir";
+Para Sair, insira "sair".
 ''')
     opcao = input()
 
@@ -422,10 +431,10 @@ sair
     elif opcao.upper() == 'SAIR':
         return
     else:
-        print('qual turma acessar?')
+        print('Qual turma acessar?')
         for i in range(len(turmas)):
             print(f'{i+1}º turma: {turmas[i].nome}')
-        escolha = int(input())-1
+        escolha = int(input('Digite seu número na lista (Ex.: 1, 2, ...): '))-1
     
     if opcao.upper() == 'IMPRIMIR':
         return imprimirTurma(escolha)
@@ -478,7 +487,7 @@ def inserirDisciplina():
         print(f'O Professor {professorTitular} é inexistente!')
         return
 
-    ativo = input('A disciplina será ativa? ')
+    ativo = input('A disciplina será ativa? (Sim/Não)')
     if ativo.upper() == 'SIM':
         ativo = 'Sim'
     elif ativo.upper() == 'NÃO':
@@ -493,10 +502,10 @@ def inserirDisciplina():
 def editarDisciplina(disciplina):
     print('O que você deseja editar?')
     print('''
-ID
-Descrição
-Segmento De Ensino
-Professor Titular
+Para editar ID, insira "id";
+Para editar Descrição, insira "descricao";
+Para editar Segmento De Ensino, insira "segmento de ensino";
+Para editar Professor Titular, insira "professor titular".
 ''')
     opcaoX = input('')
 
@@ -514,7 +523,7 @@ Professor Titular
         print(disciplinas[disciplina]) #TEM QUE TIRAR DEPOIS *****
         return
     
-    elif opcaoX.upper() == 'DESCRIÇÃO':
+    elif opcaoX.upper() == 'DESCRICAO':
         descricaoX = input('Insira a Descrição: ')
         disciplinas[disciplina].descricao = descricaoX
         print(disciplinas[disciplina]) #TEM QUE TIRAR DEPOIS *****
@@ -545,7 +554,7 @@ Professor Titular
 
 #=========================================================================== desativar
 def desativarDisciplina(disciplina):
-    opcaoX = input('Você tem certeza de que deseja desativar a disciplina? ')
+    opcaoX = input('Você tem certeza de que deseja desativar a disciplina? (Sim/Não)')
     if opcaoX.upper() == 'SIM':
         disciplinas[disciplina].ativo = 'Não'
         print(f'Turma {disciplinas[disciplina].id} desativada!')
@@ -558,7 +567,7 @@ def desativarDisciplina(disciplina):
 
 #=========================================================================== excluir
 def excluirDisciplina(disciplina):
-    opcaoX = input('Você tem certeza de que deseja excluir a disciplina? ')
+    opcaoX = input('Você tem certeza de que deseja excluir a disciplina? (Sim/Não) ')
     if opcaoX.upper() == 'SIM':
         turmas.remove(disciplinas[disciplina])
         print('Disciplina selecionada excluída!')
@@ -573,11 +582,11 @@ def excluirDisciplina(disciplina):
 def crudDisciplina():
     print('O que fazer com a disciplina?')
     print('''
-Inserir
-Editar
-Desativar
-Excluir
-sair
+Para Inserir, digite "inserir";
+Para Editar, digite "editar";
+Para Desativar, digite "desativar";
+Para Excluir, digite "excluir";
+Para Sair, digite "sair".
 ''')
     opcao = input()
 
@@ -586,10 +595,10 @@ sair
     elif opcao.upper() == 'SAIR':
         return
     else:
-        print('qual disciplina acessar?')
+        print('Qual disciplina acessar?')
         for i in range(len(disciplinas)):
             print(f'{i+1}º Disciplina: {disciplinas[i].descricao}')
-        escolha = int(input())-1
+        escolha = int(input('Digite seu número na lista (Ex.: 1, 2, ...): '))-1
     
     if opcao.upper() == 'EDITAR':
         return editarDisciplina(escolha)
@@ -617,7 +626,7 @@ def inserirProfessor():
     emailX = input('Insira o email: ')
     senhaX = input('Insira a senha: ')
 
-    ativo = input('O professor será ativo?')
+    ativo = input('O professor será ativo? (Sim/Não) ')
     if ativo.upper() == 'SIM':
         ativo = 'Sim'
     elif ativo.upper() == 'NÃO':
@@ -698,17 +707,18 @@ def inserirProfessor():
 def editarProfessor(professor):
     print('O que você deseja editar? ')
     print('''
-Nome
-Sobrenome
-Endereço
-CPF
-Nome de Usuário
-Email
-Senha
-Turmas
-Formação
-Disciplinas
-Segmentos''')
+Para editar Nome, insira "nome";
+Para editar Sobrenome, insira "sobrenome";
+Para editar Endereço, insira "endereco";
+Para editar CPF, insira "cpf";
+Para editar Nome de Usuário, insira "nome de usuario";
+Para editar Email, insira "email";
+Para editar Senha, insira "senha";
+Para editar Turmas, insira "turmas";
+Para editar Formação, insira "formacao";
+Para editar Disciplinas, insira "disciplinas";
+Para editar Segmentos, insira "segmentos".
+          ''')
     opcaoX = input('')
 
     if opcaoX.upper() == 'NOME':
@@ -725,7 +735,7 @@ Segmentos''')
         print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
         return
     
-    elif opcaoX.upper() == 'ENDEREÇO':
+    elif opcaoX.upper() == 'ENDERECO':
         enderecoX = input('Insira o novo endereço: ')
         professores[professor].endereco = enderecoX
         print(f'Endereço alterado para: {professores[professor].endereco}')
@@ -739,7 +749,7 @@ Segmentos''')
         print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
         return
     
-    elif opcaoX.upper() == 'NOME DE USUÁRIO':
+    elif opcaoX.upper() == 'NOME DE USUARIO':
         nomeUsuarioX = input('Insira o novo Nome de Usuário: ')
         professores[professor].nomeUsuario = nomeUsuarioX
         print(f'Nome de Usuário alterado para: {professores[professor].nomeUsuario}')
@@ -761,7 +771,7 @@ Segmentos''')
         return
     
     elif opcaoX.upper() == 'TURMAS':
-        escolha = input('Você deseja remover ou adicionar uma Turma? ')
+        escolha = input('Você deseja remover ou adicionar uma Turma? (remover/adicionar) ')
         if escolha.upper() == 'REMOVER':
             x = 0
             turmaX = input('Insira a Turma que você deseja remover: ')
@@ -783,10 +793,12 @@ Segmentos''')
                     x += 1
             if x == 0:
                 print(f'A turma {turmaX} é inexistente!')
+        else:
+            print('Opção Inválida!')
         print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
         return
     
-    elif opcaoX.upper() == 'FORMAÇÃO':
+    elif opcaoX.upper() == 'FORMACAO':
         formacaoX = input('Insira a nova Formação: ')
         professores[professor].formacao = formacaoX
         print(f'Formação alterada para: {professores[professor].formacao}')
@@ -794,7 +806,7 @@ Segmentos''')
         return
     
     elif opcaoX.upper() == 'DISCIPLINAS':
-        escolha = input('Você deseja remover ou adicionar uma Disciplina? ')
+        escolha = input('Você deseja remover ou adicionar uma Disciplina? (remover/adicionar) ')
         if escolha.upper() == 'REMOVER':
             x = 0
             disciplinaX = input('Insira o ID da Disciplina que você deseja remover: ')
@@ -816,11 +828,13 @@ Segmentos''')
                     x += 1
             if x == 0:
                 print(f'A Disciplina {disciplinaX} é inexistente!')
+        else:
+            print('Opção Inválida!')
         print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
         return
     
     elif opcaoX.upper() == 'SEGMENTOS':
-        escolha = input('Você deseja remover ou adicionar um Segmento de Ensino? ')
+        escolha = input('Você deseja remover ou adicionar um Segmento de Ensino? (remover/adicionar) ')
         if escolha.upper() == 'REMOVER':
             x = 0
             segmentoX = input('Insira o Segmento de Ensino que você deseja remover: ')
@@ -840,8 +854,11 @@ Segmentos''')
                     print(f'Segmento de Ensino {segmentosEnsino[i].segmento} adicionado!')
                     professores[professor].segmentos.append(segmentosEnsino[i])
                     x += 1
+                    break
             if x == 0:
                 print(f'O Segmento de Ensino {segmentoX} é inexistente!')
+        else:
+            print('Opção Inválida!')
         print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
         return
     
@@ -852,7 +869,7 @@ Segmentos''')
 
 #=========================================================================== desativar
 def desativarProfessor(professor):
-    opcaoX = input('Você tem certeza de que deseja desativar este Professor? ')
+    opcaoX = input('Você tem certeza de que deseja desativar este Professor? (Sim/Não) ')
     if opcaoX.upper() == 'SIM':
         professores[professor].ativo = 'Não'
         print(f'Turma {professores[professor].nome} desativado!')
@@ -865,7 +882,7 @@ def desativarProfessor(professor):
 
 #=========================================================================== excluir
 def excluirProfessor(professor):
-    opcaoX = input('Você tem certeza de que deseja excluir este Professor? ')
+    opcaoX = input('Você tem certeza de que deseja excluir este Professor? (Sim/Não) ')
     if opcaoX.upper() == 'SIM':
         turmas.remove(professores[professor])
         print('Professor selecionado excluído!')
@@ -880,11 +897,11 @@ def excluirProfessor(professor):
 def crudProfessor():
     print('O que fazer com o professor?')
     print('''
-Inserir
-Editar
-Desativar
-Excluir
-sair
+Para Inserir, insira "inserir";
+Para Editar, insira "editar";
+Para Desativar, insira "desativar";
+Para Excluir, insira "excluir";
+Para Sair, insira "sair".
 ''')
     opcao = input()
 
@@ -893,10 +910,10 @@ sair
     elif opcao.upper() == 'SAIR':
         return
     else:
-        print('qual professor acessar?')
+        print('Qual professor acessar?')
         for i in range(len(professores)):
             print(f'{i+1}º Professor: {professores[i].nome}')
-        escolha = int(input())-1
+        escolha = int(input('Digite seu número na lista (Ex.: 1, 2, ...): '))-1
     
     if opcao.upper() == 'EDITAR':
         return editarProfessor(escolha)
@@ -922,7 +939,7 @@ def inserirEstudante():
     emailX = input('Insira o email: ')
     senhaX = input('Insira a senha: ')
 
-    ativo = input('O estudante será ativo? ')
+    ativo = input('O estudante será ativo? (Sim/Não) ')
     if ativo.upper() == 'SIM':
         ativo = 'Sim'
     elif ativo.upper() == 'NÃO':
@@ -934,7 +951,7 @@ def inserirEstudante():
     segmentoEnsinoX = input('Insira o Segmento de Ensino: ')
     turmaX = ''
     if segmentoEnsinoX == segmentosEnsino[1].segmento:
-        print('O estudante cursará dois cursos paralelamente? ')
+        print('O estudante cursará dois cursos paralelamente? (Sim/Não) ')
         escolha = input('')
         if escolha.upper() == 'SIM':
             turmaX = []
@@ -963,7 +980,7 @@ def inserirEstudante():
                 print('Turma não existente!')
                 return
 
-        if escolha.upper() == 'NÃO':
+        elif escolha.upper() == 'NÃO':
             turmaX = input('Insira a turma: ')
             for i in range(len(turmas)):
                 if turmaX == turmas[i].nome:
@@ -972,6 +989,12 @@ def inserirEstudante():
             if x == 0:
                 print(f'Turma {turmaX} é inexistente!')
                 return
+
+        else:
+            print('Opção Inválida!')
+
+        return
+    
     else:
         turmaX = input('Insira a turma: ')
         for i in range(len(turmas)):
@@ -1007,18 +1030,18 @@ def inserirEstudante():
 def editarEstudante(aluno):
     print('O que você deseja editar?')
     print('''
-Nome
-Sobrenome
-Endereço
-CPF
-Nome de Usuário
-Email
-Senha
-Turma
-Filiação
-Email Responsável
-Registro Acadêmico
-Segmento de Ensino
+Para editar Nome, insira "nome";
+Para editar Sobrenome, insira "sobrenome";
+Para editar Endereço, insira "endereco";
+Para editar CPF, insira "cpf";
+Para editar Nome de Usuário, insira "usuario";
+Para editar Email, insira "email";
+Para editar Senha, insira "senha";
+Para editar Turma, insira "turma";
+Para editar Filiação, insira "filiacao";
+Para editar Email Responsável, insira "email responsavel";
+Para editar Registro Acadêmico, insira "registro academico";
+Para editar Segmento de Ensino, insira "segmento de ensino".
 ''')
     opcaoX = input('')
 
@@ -1037,7 +1060,7 @@ Segmento de Ensino
         return
     
     elif opcaoX.upper() == 'ENDEREÇO':
-        enderecoX = input('Insira o novo endereço: ')
+        enderecoX = input('Insira o novo endereco: ')
         alunos[aluno].endereco = enderecoX
         print(f'Endereço alterado para: {alunos[aluno].endereco}')
         print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
@@ -1072,7 +1095,7 @@ Segmento de Ensino
         return
     
     elif opcaoX.upper() == 'TURMA':
-        escolha = input('Você deseja remover ou adicionar uma Turma? ')
+        escolha = input('Você deseja remover ou adicionar uma Turma? (remover/adicionar) ')
         if escolha.upper() == 'REMOVER':
             x = 0
             turmaX = input('Insira a Turma que você deseja remover: ')
@@ -1099,8 +1122,8 @@ Segmento de Ensino
         print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
         return
 
-    elif opcaoX.upper() == 'FILIAÇÃO':
-        escolha = input('Você deseja remover ou adicionar uma Filiação? ')
+    elif opcaoX.upper() == 'FILIACAO':
+        escolha = input('Você deseja remover ou adicionar uma Filiação? (remover/adicionar) ')
         if escolha.upper() == 'REMOVER':
             x = 0
             filiacaoX = input('Insira a Filiação que você deseja remover: ')
@@ -1121,15 +1144,15 @@ Segmento de Ensino
         print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
         return
         
-    elif opcaoX.upper() == 'EMAIL RESPONSÁVEL':
+    elif opcaoX.upper() == 'EMAIL RESPONSAVEL':
         emailResponsavelX = input('Insira o novo Email Responsável: ')
         alunos[aluno].emailResponsavel = emailResponsavelX
         print(f'Email Responsável alterado para: {alunos[aluno].emailResponsavel}')
         print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
         return
     
-    elif opcaoX.upper() == 'REGISTRO ACADÊMICO':
-        registroAcadX = input('Insira o novo Registro Acadêmico')
+    elif opcaoX.upper() == 'REGISTRO ACADEMICO':
+        registroAcadX = input('Insira o novo Registro Acadêmico: ')
         alunos[aluno].registroAcad = registroAcadX
         print(f'Registro Acadêmico alterado para: {alunos[aluno].registroAcad}')
         print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
@@ -1152,7 +1175,7 @@ Segmento de Ensino
 
 #=========================================================================== desativar
 def desativarEstudante(aluno):
-    opcaoX = input('Você tem certeza de que deseja desativar este Estudante? ')
+    opcaoX = input('Você tem certeza de que deseja desativar este Estudante? (Sim/Não) ')
     if opcaoX.upper() == 'SIM':
         alunos[aluno].ativo = 'Não'
         print(f'Turma {alunos[aluno].nome} desativado!')
@@ -1165,7 +1188,7 @@ def desativarEstudante(aluno):
 
 #=========================================================================== excluir
 def excluirEstudante(aluno):
-    opcaoX = input('Você tem certeza de que deseja excluir este Estudante? ')
+    opcaoX = input('Você tem certeza de que deseja excluir este Estudante? (Sim/Não) ')
     if opcaoX.upper() == 'SIM':
         turmas.remove(alunos[aluno])
         print('Aluno selecionado excluído!')
@@ -1182,7 +1205,7 @@ def transferenciaEstudante(aluno):
         print('Você deseja transferir o estudante para qual curso?')
         for i in range(len(segmentosEnsino[0].cursos)):
             print(f'{i+1}º curso: {segmentosEnsino[0].cursos[i]}')
-        opcaoX = int(input(''))-1
+        opcaoX = int(input('Digite seu número na lista (Ex.: 1, 2, ...): '))-1
 
         if alunos[aluno].turma[0].opcaoCurso != segmentosEnsino[0].cursos[opcaoX]:
             print('Estas são as turmas do curso selecionado: ')
@@ -1190,7 +1213,7 @@ def transferenciaEstudante(aluno):
                 if turmas[i].opcaoCurso == segmentosEnsino[1].cursos[opcaoX]:
                     print(f'{i+1}ª turma: {turmas[i].nome}')
             print('Selecione uma das turmas para a transferência!')
-            escolha = int(input(''))-1
+            escolha = int(input('Digite seu número na lista (Ex.: 1, 2, ...): '))-1
             alunos[aluno].turma[0] = turmas[escolha]
             print(f'Estudante transferido para a turma {alunos[aluno].turma[0].opcaoCurso}')
         else:
@@ -1203,7 +1226,7 @@ def transferenciaEstudante(aluno):
             print('Você deseja transferir o estudante para qual curso?')
             for i in range(len(segmentosEnsino[1].cursos)):
                 print(f'{i+1}º curso: {segmentosEnsino[1].cursos[i]}')
-            opcaoX = int(input(''))-1
+            opcaoX = int(input('Digite seu número na lista (Ex.: 1, 2, ...): '))-1
 
             if alunos[aluno].turma[0].opcaoCurso != segmentosEnsino[1].cursos[opcaoX]:
                 print('Estas são as turmas do curso selecionado: ')
@@ -1211,7 +1234,7 @@ def transferenciaEstudante(aluno):
                     if turmas[i].opcaoCurso == segmentosEnsino[1].cursos[opcaoX]:
                         print(f'{i+1}ª turma: {turmas[i].nome}')
                 print('Selecione uma das turmas para a transferência!')
-                escolha = int(input(''))-1
+                escolha = int(input('Digite seu número na lista (Ex.: 1, 2, ...): '))-1
                 alunos[aluno].turma[0] = turmas[escolha]
                 print(f'Estudante transferido para a turma {alunos[aluno].turma[0].opcaoCurso}')
             else:
@@ -1223,12 +1246,12 @@ def transferenciaEstudante(aluno):
 def crudEstudante():
     print('O que fazer com o estudante?')
     print('''
-Inserir
-Editar
-Desativar
-Excluir
-Solicitar Transferência
-sair
+Para Inserir, digite "inserir";
+Para Editar, digite "editar";
+Para Desativar, digite "desativar";
+Para Excluir, digite "excluir";
+Para Solicitar Transferência, digite "transferencia";
+Para Sair, digite "sair"
 ''')
     opcao = input()
 
@@ -1237,10 +1260,10 @@ sair
     elif opcao.upper() == 'SAIR':
         return
     else:
-        print('qual estudante acessar?')
+        print('Qual estudante acessar?')
         for i in range(len(alunos)):
             print(f'{i+1}º Estudante: {alunos[i].nome}')
-        escolha = int(input())-1
+        escolha = int(input('Digite seu número na lista (Ex.: 1, 2, ...): '))-1
     
     if opcao.upper() == 'EDITAR':
         return editarEstudante(escolha)
@@ -1248,7 +1271,7 @@ sair
         return desativarEstudante(escolha)
     elif opcao.upper() == 'EXCLUIR':
         return excluirEstudante(escolha)
-    elif opcao.upper() == 'SOLICITAR TRANSFERÊNCIA':
+    elif opcao.upper() == 'TRANSFERENCIA':
         return transferenciaEstudante(escolha)
     else:
         print('Opção Inválida!')
@@ -1277,11 +1300,11 @@ while x == 0:
     print('')
     print('O que você deseja fazer? ')
     print('''
-Acessar turmas
-Acessar disciplinas
-Acessar professores
-Acessar estudantes
-sair
+Para acessar turmas, digite "turmas";
+Para acessar disciplinas, digite "disciplinas";
+Para acessar professores, digite "professores";
+Para acessar estudantes, digite "estudantes";
+Para sair, digite "sair".
 ''')
     opcao = input('')
     if opcao.upper() == 'TURMAS':
