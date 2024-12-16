@@ -142,7 +142,7 @@ def inserirTurma():
     x = 0
     segmentoEnsino = input('Segmento de Ensino: ')
     for i in range(len(segmentosEnsino)):
-        if segmentoEnsino == segmentosEnsino[i].segmento:
+        if segmentoEnsino.upper() == segmentosEnsino[i].segmento.upper():
             print(f'Segmento de Ensino {segmentoEnsino} existente!')
             x += 1
     if x == 0:
@@ -152,7 +152,7 @@ def inserirTurma():
     opcaoCurso = input('Opção de Curso: ')
     for i in range(len(segmentosEnsino)):
         for j in range(len(segmentosEnsino[i].cursos)):
-            if opcaoCurso == segmentosEnsino[i].cursos[j]:
+            if opcaoCurso.upper() == segmentosEnsino[i].cursos[j].upper():
                 print(f'Opção de Curso {opcaoCurso} compatível!')
                 x += 1
     if x == 0:
@@ -207,7 +207,7 @@ def inserirTurma():
             disciplinasX = int(input('Quantidade de Disciplinas: '))
             for i in range(disciplinasX):
                 x = 0
-                idX = int(input('Insira o id da Disciplina: '))
+                idX = input('Insira o id da Disciplina: ')
                 for j in range(len(disciplinas)):
                     if idX == disciplinas[j].id:
                         disciplinasY.append(disciplinas[j])
@@ -255,7 +255,7 @@ Para Sair, insira "sair".
         nomeX = input('Insira o novo nome:')
         turmas[turma].nome = nomeX
         print(f'Nome alterado para: {nomeX}')
-        print(turmas[turma]) #TEM QUE TIRAR DEPOIS *****
+        print(turmas[turma]) 
         return
     
     elif opcaoX.upper() == 'SEGMENTO DE ENSINO':
@@ -265,7 +265,7 @@ Para Sair, insira "sair".
         elif turmas[turma].segmentoEnsino.upper() == 'ENSINO SUPERIOR':
             turmas[turma].segmentoEnsino = segmentosEnsino[0].segmento
             print(f'Segmento de Ensino alterado para: {turmas[turma].segmentoEnsino}')
-        print(turmas[turma]) #TEM QUE TIRAR DEPOIS *****
+        print(turmas[turma]) 
         return
     
     elif opcaoX.upper() == 'OPCAO DE CURSO':
@@ -284,14 +284,14 @@ Para Sair, insira "sair".
             print(f'Opção de curso alterada para: {segmentosEnsino[0].cursos[escolha-1]}')
         else:
             print('Opção Inválida!')
-        print(turmas[turma]) #TEM QUE TIRAR DEPOIS *****
+        print(turmas[turma]) 
         return
     
     elif opcaoX.upper() == 'ANO ESCOLAR':
         anoEscolarX = input('Insira um novo Ano Escolar:')
         turmas[turma].anoEscolar = anoEscolarX
         print(f'Ano Escolar alterado para: {anoEscolarX}')
-        print(turmas[turma]) #TEM QUE TIRAR DEPOIS *****
+        print(turmas[turma]) 
         return
     
     elif opcaoX.upper() == 'ALUNOS': 
@@ -320,7 +320,7 @@ Para Sair, insira "sair".
                 print(f'O Aluno {alunoX} é inexistente!')
         else:
             print('Opção Inválida!')
-        print(turmas[turma]) #TEM QUE TIRAR DEPOIS *****
+        print(turmas[turma]) 
         return
     
     elif opcaoX.upper() == 'PROFESSORES':
@@ -348,7 +348,7 @@ Para Sair, insira "sair".
                 print(f'O Professor {professorX} é inexistente!')
         else:
             print('Opção Inválida!')
-        print(turmas[turma]) #TEM QUE TIRAR DEPOIS *****
+        print(turmas[turma]) 
         return
 
     elif opcaoX.upper() == 'DISCIPLINAS':
@@ -376,7 +376,7 @@ Para Sair, insira "sair".
                 print(f'A Disciplina {disciplinaX} é inexistente!')
         else:
             print('Opção Inválida!')
-        print(turmas[turma]) #TEM QUE TIRAR DEPOIS *****
+        print(turmas[turma]) 
         return
                 
     elif opcaoX.upper() == 'SAIR':
@@ -396,7 +396,7 @@ def desativarTurma(turma):
         return
     else:
         print('Opção Inválida!')
-    print(turmas[turma]) #TEM QUE TIRAR DEPOIS *****
+    print(turmas[turma]) 
     return
 
 #===========================================================================
@@ -409,7 +409,7 @@ def excluirTurma(turma):
         return
     else:
         print('Opção Inválida!')
-    print(turmas[turma]) #TEM QUE TIRAR DEPOIS *****
+    print(turmas[turma]) 
     return
 
 #===========================================================================
@@ -470,7 +470,7 @@ def inserirDisciplina():
     x = 0
     segmento = input('Insira o Segmento de Ensino: ')
     for i in range(len(segmentosEnsino)):
-        if segmento == segmentosEnsino[i].segmento:
+        if segmento.upper() == segmentosEnsino[i].segmento.upper():
             print(f'Segmento de Ensino {segmento} existente!')
             x += 1
     if x == 0:
@@ -520,13 +520,13 @@ Para editar Professor Titular, insira "professor titular".
         if x == 0:
             print(f'O ID {idX} está livre, e foi cadastrado!')
             disciplinas[disciplina].id = idX
-        print(disciplinas[disciplina]) #TEM QUE TIRAR DEPOIS *****
+        print(disciplinas[disciplina]) 
         return
     
     elif opcaoX.upper() == 'DESCRICAO':
         descricaoX = input('Insira a Descrição: ')
         disciplinas[disciplina].descricao = descricaoX
-        print(disciplinas[disciplina]) #TEM QUE TIRAR DEPOIS *****
+        print(disciplinas[disciplina]) 
         return
     
     elif opcaoX.upper() == 'SEGMENTO DE ENSINO':
@@ -536,7 +536,7 @@ Para editar Professor Titular, insira "professor titular".
         elif disciplinas[disciplina].segmento.upper() == 'ENSINO SUPERIOR':
             disciplinas[disciplina].segmento = segmentosEnsino[0].segmento
             print(f'Segmento de Ensino alterado para: {disciplinas[disciplina].segmento}')
-        print(disciplinas[disciplina]) #TEM QUE TIRAR DEPOIS *****
+        print(disciplinas[disciplina]) 
         return
     
     elif opcaoX.upper() == 'PROFESSOR TITULAR':
@@ -549,7 +549,7 @@ Para editar Professor Titular, insira "professor titular".
                 x += 1
         if x == 0:
             print(f'O Professor {professorX} é inexistente!')
-        print(disciplinas[disciplina]) #TEM QUE TIRAR DEPOIS *****
+        print(disciplinas[disciplina]) 
     return
 
 #=========================================================================== desativar
@@ -562,7 +562,7 @@ def desativarDisciplina(disciplina):
         return
     else:
         print('Opção Inválida!')
-    print(disciplinas[disciplina]) #TEM QUE TIRAR DEPOIS *****
+    print(disciplinas[disciplina]) 
     return
 
 #=========================================================================== excluir
@@ -575,7 +575,7 @@ def excluirDisciplina(disciplina):
         return
     else:
         print('Opção Inválida!')
-    print(disciplinas[disciplina]) #TEM QUE TIRAR DEPOIS *****
+    print(disciplinas[disciplina]) 
     return
 
 #===========================================================================
@@ -686,7 +686,7 @@ def inserirProfessor():
                 x = 0
                 nomeY = input('Insira o Segmento de Ensino: ')
                 for j in range(len(segmentosEnsino)):
-                    if nomeY == segmentosEnsino[j].segmento:
+                    if nomeY.upper() == segmentosEnsino[j].segmento.upper():
                         segmentosY.append(segmentosEnsino[j])
                         print('Segmento de Ensino existente!')
                         x += 1
@@ -725,49 +725,49 @@ Para editar Segmentos, insira "segmentos".
         nomeX = input('Insira o novo nome: ')
         professores[professor].nome = nomeX
         print(f'Nome alterado para: {professores[professor].nome}')
-        print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
+        print(professores[professor]) 
         return
     
     elif opcaoX.upper() == 'SOBRENOME':
         sobrenomeX = input('Insira o novo sobrenome: ')
         professores[professor].sobrenome = sobrenomeX
         print(f'Sobrenome alterado para: {professores[professor].sobrenome}')
-        print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
+        print(professores[professor]) 
         return
     
     elif opcaoX.upper() == 'ENDERECO':
         enderecoX = input('Insira o novo endereço: ')
         professores[professor].endereco = enderecoX
         print(f'Endereço alterado para: {professores[professor].endereco}')
-        print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
+        print(professores[professor]) 
         return
     
     elif opcaoX.upper() == 'CPF':
         cpfX = input('Insira o novo CPF: ')
         professores[professor].cpf = cpfX
         print(f'CPF alterado para: {professores[professor].cpf}')
-        print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
+        print(professores[professor]) 
         return
     
     elif opcaoX.upper() == 'NOME DE USUARIO':
         nomeUsuarioX = input('Insira o novo Nome de Usuário: ')
         professores[professor].nomeUsuario = nomeUsuarioX
         print(f'Nome de Usuário alterado para: {professores[professor].nomeUsuario}')
-        print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
+        print(professores[professor]) 
         return
     
     elif opcaoX.upper() == 'EMAIL':
         emailX = input('Insira o novo Email: ')
         professores[professor].email = emailX
         print(f'Email alterado para: {professores[professor].email}')
-        print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
+        print(professores[professor]) 
         return
     
     elif opcaoX.upper() == 'SENHA':
         senhaX = input('Insira a nova Senha: ')
         professores[professor].senha = senhaX
         print(f'Senha alterada para: {professores[professor].senha}')
-        print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
+        print(professores[professor]) 
         return
     
     elif opcaoX.upper() == 'TURMAS':
@@ -795,14 +795,14 @@ Para editar Segmentos, insira "segmentos".
                 print(f'A turma {turmaX} é inexistente!')
         else:
             print('Opção Inválida!')
-        print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
+        print(professores[professor]) 
         return
     
     elif opcaoX.upper() == 'FORMACAO':
         formacaoX = input('Insira a nova Formação: ')
         professores[professor].formacao = formacaoX
         print(f'Formação alterada para: {professores[professor].formacao}')
-        print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
+        print(professores[professor]) 
         return
     
     elif opcaoX.upper() == 'DISCIPLINAS':
@@ -830,7 +830,7 @@ Para editar Segmentos, insira "segmentos".
                 print(f'A Disciplina {disciplinaX} é inexistente!')
         else:
             print('Opção Inválida!')
-        print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
+        print(professores[professor]) 
         return
     
     elif opcaoX.upper() == 'SEGMENTOS':
@@ -839,7 +839,7 @@ Para editar Segmentos, insira "segmentos".
             x = 0
             segmentoX = input('Insira o Segmento de Ensino que você deseja remover: ')
             for i in range(len(professores[professor].segmentos)):
-                if segmentoX == professores[professor].segmentos[i]:
+                if segmentoX.upper() == professores[professor].segmentos[i].upper():
                     print(f'Disciplina {professores[professor].segmentos[i]} removido!')
                     professores[professor].segmentos.pop(i)
                     x += 1
@@ -850,7 +850,7 @@ Para editar Segmentos, insira "segmentos".
             x = 0
             segmentoX = input('Insira o Segmento de Ensino que você deseja adicionar: ')
             for i in range(len(segmentosEnsino)):
-                if segmentoX == segmentosEnsino[i].segmento:
+                if segmentoX.upper() == segmentosEnsino[i].segmento.upper():
                     print(f'Segmento de Ensino {segmentosEnsino[i].segmento} adicionado!')
                     professores[professor].segmentos.append(segmentosEnsino[i])
                     x += 1
@@ -859,7 +859,7 @@ Para editar Segmentos, insira "segmentos".
                 print(f'O Segmento de Ensino {segmentoX} é inexistente!')
         else:
             print('Opção Inválida!')
-        print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
+        print(professores[professor]) 
         return
     
     else:
@@ -877,7 +877,7 @@ def desativarProfessor(professor):
         return
     else:
         print('Opção Inválida!')
-    print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
+    print(professores[professor]) 
     return
 
 #=========================================================================== excluir
@@ -890,7 +890,7 @@ def excluirProfessor(professor):
         return
     else:
         print('Opção Inválida!')
-    print(professores[professor]) #TEM QUE TIRAR DEPOIS *****
+    print(professores[professor]) 
     return
 
 #===========================================================================
@@ -949,8 +949,8 @@ def inserirEstudante():
         return
     
     segmentoEnsinoX = input('Insira o Segmento de Ensino: ')
-    turmaX = ''
-    if segmentoEnsinoX == segmentosEnsino[1].segmento:
+    turmaX = []
+    if segmentoEnsinoX.upper() == segmentosEnsino[1].segmento.upper():
         print('O estudante cursará dois cursos paralelamente? (Sim/Não) ')
         escolha = input('')
         if escolha.upper() == 'SIM':
@@ -981,26 +981,29 @@ def inserirEstudante():
                 return
 
         elif escolha.upper() == 'NÃO':
-            turmaX = input('Insira a turma: ')
+            turmaX = []
+            x = 0
+            turmaY = input('Insira a turma: ')
             for i in range(len(turmas)):
-                if turmaX == turmas[i].nome:
+                if turmaY == turmas[i].nome:
                     print(f'Turma {turmas[i].nome} existente!')
                     x += 1
+                    turmaX.append(turmaY)
             if x == 0:
                 print(f'Turma {turmaX} é inexistente!')
                 return
-
         else:
             print('Opção Inválida!')
-
         return
-    
     else:
-        turmaX = input('Insira a turma: ')
+        turmaX = []
+        x = 0
+        turmaY = input('Insira a turma: ')
         for i in range(len(turmas)):
-            if turmaX == turmas[i].nome:
+            if turmaY == turmas[i].nome:
                 print(f'Turma {turmas[i].nome} existente!')
                 x += 1
+                turmaX.append(turmaY)
         if x == 0:
             print(f'Turma {turmaX} é inexistente!')
             return
@@ -1010,8 +1013,8 @@ def inserirEstudante():
         try:
             filiacaoX = int(input('Insira a quantidade de responsáveis: '))
             for i in range(filiacaoX):
-                nomeX = input(f'Insira o nome do {i}º Responsável: ')
-                filiacaoY.append(nomeX)
+                nomeY = input(f'Insira o nome do {i}º Responsável: ')
+                filiacaoY.append(nomeY)
             break
         except:
             print('Não foi inserido um número, tente novamente!')
@@ -1049,49 +1052,49 @@ Para editar Segmento de Ensino, insira "segmento de ensino".
         nomeX = input('Insira o novo nome: ')
         alunos[aluno].nome = nomeX
         print(f'Nome alterado para: {alunos[aluno].nome}')
-        print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
+        print(alunos[aluno]) 
         return
     
     elif opcaoX.upper() == 'SOBRENOME':
         sobrenomeX = input('Insira o novo sobrenome: ')
         alunos[aluno].sobrenome = sobrenomeX
         print(f'Sobrenome alterado para: {alunos[aluno].sobrenome}')
-        print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
+        print(alunos[aluno]) 
         return
     
     elif opcaoX.upper() == 'ENDEREÇO':
         enderecoX = input('Insira o novo endereco: ')
         alunos[aluno].endereco = enderecoX
         print(f'Endereço alterado para: {alunos[aluno].endereco}')
-        print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
+        print(alunos[aluno]) 
         return
     
     elif opcaoX.upper() == 'CPF':
         cpfX = input('Insira o novo CPF: ')
         alunos[aluno].cpf = cpfX
         print(f'CPF alterado para: {alunos[aluno].cpf}')
-        print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
+        print(alunos[aluno]) 
         return
     
     elif opcaoX.upper() == 'NOME DE USUÁRIO':
         nomeUsuarioX = input('Insira o novo Nome de Usuário: ')
         alunos[aluno].nomeUsuario = nomeUsuarioX
         print(f'Nome de Usuário alterado para: {alunos[aluno].nomeUsuario}')
-        print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
+        print(alunos[aluno]) 
         return
     
     elif opcaoX.upper() == 'EMAIL':
         emailX = input('Insira o novo Email: ')
         alunos[aluno].email = emailX
         print(f'Email alterado para: {alunos[aluno].email}')
-        print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
+        print(alunos[aluno]) 
         return
     
     elif opcaoX.upper() == 'SENHA':
         senhaX = input('Insira a nova Senha: ')
         alunos[aluno].senha = senhaX
         print(f'Senha alterada para: {alunos[aluno].senha}')
-        print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
+        print(alunos[aluno]) 
         return
     
     elif opcaoX.upper() == 'TURMA':
@@ -1119,7 +1122,7 @@ Para editar Segmento de Ensino, insira "segmento de ensino".
                 print(f'A turma {turmaX} é inexistente!')
         else:
             print('Opção Inválida!')
-        print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
+        print(alunos[aluno]) 
         return
 
     elif opcaoX.upper() == 'FILIACAO':
@@ -1141,21 +1144,21 @@ Para editar Segmento de Ensino, insira "segmento de ensino".
             print(f'Filiação {filiacaoX} adicionada!')
         else:
             print('Opção Inválida!')
-        print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
+        print(alunos[aluno]) 
         return
         
     elif opcaoX.upper() == 'EMAIL RESPONSAVEL':
         emailResponsavelX = input('Insira o novo Email Responsável: ')
         alunos[aluno].emailResponsavel = emailResponsavelX
         print(f'Email Responsável alterado para: {alunos[aluno].emailResponsavel}')
-        print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
+        print(alunos[aluno]) 
         return
     
     elif opcaoX.upper() == 'REGISTRO ACADEMICO':
         registroAcadX = input('Insira o novo Registro Acadêmico: ')
         alunos[aluno].registroAcad = registroAcadX
         print(f'Registro Acadêmico alterado para: {alunos[aluno].registroAcad}')
-        print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
+        print(alunos[aluno]) 
         return
     
     elif opcaoX.upper() == 'SEGMENTO DE ENSINO':
@@ -1165,7 +1168,7 @@ Para editar Segmento de Ensino, insira "segmento de ensino".
         elif alunos[aluno].segmentoEnsino.upper() == 'ENSINO SUPERIOR':
             alunos[aluno].segmentoEnsino = segmentosEnsino[0].segmento
             print(f'Segmento de Ensino alterado para: {alunos[aluno].segmentoEnsino}')
-        print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
+        print(alunos[aluno]) 
         return
 
     else:
@@ -1183,7 +1186,7 @@ def desativarEstudante(aluno):
         return
     else:
         print('Opção Inválida!')
-    print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
+    print(alunos[aluno]) 
     return
 
 #=========================================================================== excluir
@@ -1196,7 +1199,7 @@ def excluirEstudante(aluno):
         return
     else:
         print('Opção Inválida!')
-    print(alunos[aluno]) #TEM QUE TIRAR DEPOIS *****
+    print(alunos[aluno]) 
     return
 
 #=========================================================================== transferência
@@ -1280,20 +1283,6 @@ Para Sair, digite "sair"
 
 #PARTE PRÁTICA ==================================================================================================================================================================
 
-"""
-1. mecatrônica, eletromecânica e informática. Obrigatoriamente, um aluno do EM deve estar associado a uma dessas opções; fechou ================
-2. O aluno do EM pode solicitar transferência para outra opção de curso durante a sua vida acadêmica na instituição; fechou mas posso fazer um tiquito diferente ================
-
-4. O aluno do ensino superior poderá cursar os dois segmentos paralelamente; tenho q arrumar// fechou ================
-5. Caso o aluno tenha optado por apenas curso (ciências da computação ou pedagogia), é permitido ao aluno transferir de curso durante a sua vida acadêmica na instituição; fechou mas posso fazer um tiquito diferente ================
-
-6. É possível imprimir, inserir, editar, desativar e excluir uma turma. fechou ================
-11. É possível inserir, editar, desativar e excluir uma disciplina; fechou ================
-13. É possível inserir, editar, desativar e excluir um professor; fechou ================
-15. É possível inserir, editar, desativar e excluir um estudante. fechou ================
-filiação é o nome do pai e da mãe fechou ================
-"""
-
 print('Bem vindo ao sistema estudantil!')
 x = 0
 while x == 0:
@@ -1324,10 +1313,3 @@ Para sair, digite "sair".
     else:
         print('Foi inseirdo uma opção inválida: ')
         continue
-
-#modificar o lance do professor, pq é uma lista de disciplinas, segmentos e turmas
-#ta individual, logo devo atualizar acho q só oq to fazendo agora, pq o resto nn mexe nessas partes do professor
-#arrumei
-#falta terminar o editar professor e os tudo sobre os estudantes
-#dai também os requisitos específicos
-#vapo

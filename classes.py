@@ -1,7 +1,5 @@
 #ARQUIVO DESTINO À CLASSES
 
-#classe aluno em, informática, mecatronica, eletro, aluno superior, pedagogia, ciencias jsjs
-#transferencia, alunos s podem cursar os dois, 
 class Pessoa:
        def __init__(self, nome, sobrenome, endereco, cpf, nomeUsuario, email, senha, ativo):
               self.nome = nome
