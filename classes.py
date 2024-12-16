@@ -72,7 +72,7 @@ class Aluno(Pessoa):
        def __str__(self):
               return f'''
 {super().__str__()}
-Turma: {self.turma.nome}
+Turma: {len(self.turma)}
 Filiação: {self.filiacao}
 Email Responsável: {self.__emailResponsavel}
 Registro Acadêmico: {self.registroAcad}
@@ -101,7 +101,7 @@ class SegmentoEnsino:
        def __init__(self, segmento, cursos, ativo):
               self.segmento = segmento
               self.cursos = cursos
-              self.cursos = ativo
+              self.ativo = ativo
 
 #turmas fechou ==
 class Turma:
